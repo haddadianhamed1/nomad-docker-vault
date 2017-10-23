@@ -6,6 +6,15 @@ sudo apt-get update
 echo "mysql-server-5.6 mysql-server/root_password password root" | sudo debconf-set-selections
 echo "mysql-server-5.6 mysql-server/root_password_again password root" | sudo debconf-set-selections
 sudo apt-get install mysql-server -y
+echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | sudo debconf-set-selections
+echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | sudo debconf-set-selections
+echo "phpmyadmin phpmyadmin/mysql/app-pass password 'test'" | sudo debconf-set-selections
+echo "phpmyadmin phpmyadmin/app-password-confirm password 'test'" | sudo debconf-set-selections
+sudo apt-get install phpmyadmin -y
+sudo chmod 646 /etc/apache2/apache2.conf 
+sudo echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
+sudo chmod 644 /etc/apache2/apache2.conf 
+sudo systemctl restart apache2
 SCRIPT
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
