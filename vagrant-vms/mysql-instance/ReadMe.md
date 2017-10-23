@@ -15,18 +15,22 @@ Now go to ip/phpmyadmin
 username and password for database 
 
 # create a new user
+```
 CREATE USER 'monty'@'%' IDENTIFIED BY 'some_pass';
 GRANT ALL PRIVILEGES ON *.* TO 'monty'@'%'WITH GRANT OPTION;
 FLUSH PRIVILEGES;
-
+```
 
 # also comment out this line
+```
 sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf #bind-address           = 127.0.0.1
-
+```
 # change password
+```
 SET PASSWORD FOR 'hamed'@'%' = PASSWORD('test');
+```
 
-
+```
 # mysql> show tables;
 +----------------------+
 | Tables_in_BucketList |
@@ -45,7 +49,7 @@ SET PASSWORD FOR 'hamed'@'%' = PASSWORD('test');
 | user_password | varchar(45) | YES  |     | NULL    |                |
 +---------------+-------------+------+-----+---------+----------------+
 4 rows in set (0.00 sec)
-
+```
 
 
 # create Stored procedure
@@ -82,7 +86,9 @@ DELIMITER ;
 ```
 
 # testing
+```
 INSERT INTO tbl_user (user_name, User_username,user_password) VALUES ('hamed','hamedh','pass');
+```
 
 # SELECT * from tbl_user;
 +---------+-----------+---------------+---------------+
@@ -92,20 +98,23 @@ INSERT INTO tbl_user (user_name, User_username,user_password) VALUES ('hamed','h
 +---------+-----------+---------------+---------------+
 
 
-
+# store procedure to select *
+```
 DELIMITER //
  CREATE PROCEDURE GetAllProducts()
    BEGIN
    SELECT *  FROM tbl_user;
    END //
  DELIMITER ;
-
+```
 
 # to call a store procedure for mysql
+```
 CALL GetAllProducts();
 CALL hamed1('test','test','test');
-
-
+```
+# store procedure for this application
+```
 DELIMITER $$
 CREATE PROCEDURE pro1(
     IN p_name VARCHAR(20),
@@ -136,4 +145,4 @@ BEGIN
 END$$
 DELIMITER ;
 
-
+```
