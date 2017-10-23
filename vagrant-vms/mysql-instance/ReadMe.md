@@ -1,9 +1,13 @@
 # make db available through the network
+```
 vi /etc/mysql/mysql.conf.d/mysqld.cnf
+```
 # comment out the line that has bind = 127.0.0.1
+```
 systemctl restart mysql
-
+```
 # installing phpmyadmin
+```
 apt-get update
 apt-get install phpmyadmin
 vi /etc/apach2/apach2.conf
@@ -11,6 +15,7 @@ vi /etc/apach2/apach2.conf
 Include /etc/phpmyadmin/apache.conf
 :wq
 systemctl restart apache2 
+```
 Now go to ip/phpmyadmin
 username and password for database 
 
@@ -89,14 +94,14 @@ DELIMITER ;
 ```
 INSERT INTO tbl_user (user_name, User_username,user_password) VALUES ('hamed','hamedh','pass');
 ```
-
+```
 # SELECT * from tbl_user;
 +---------+-----------+---------------+---------------+
 | user_id | user_name | user_username | user_password |
 +---------+-----------+---------------+---------------+
 |       1 | hamed     | hamedh        | pass          |
 +---------+-----------+---------------+---------------+
-
+```
 
 # store procedure to select *
 ```
