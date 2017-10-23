@@ -49,7 +49,7 @@ SET PASSWORD FOR 'hamed'@'%' = PASSWORD('test');
 
 
 # create Stored procedure
-'''
+```
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_createUseri`(
     IN p_name VARCHAR(20),
@@ -79,7 +79,7 @@ BEGIN
     END IF;
 END$$
 DELIMITER ;
-'''
+```
 
 # testing
 INSERT INTO tbl_user (user_name, User_username,user_password) VALUES ('hamed','hamedh','pass');
