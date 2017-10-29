@@ -1,0 +1,9 @@
+{
+    "advertise_addr": "ADDR",
+    "client_addr": "0.0.0.0",
+    "data_dir": "/var/lib/consul",
+    "datacenter": "nomad-intro",
+    "enable_syslog": true,
+    "log_level": "INFO",
+    "encrypt": "KnqifJT6qkF0X+Zx9spnjg=="
+}

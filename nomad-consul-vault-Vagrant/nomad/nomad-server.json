@@ -1,0 +1,19 @@
+{
+  "bind_addr": "0.0.0.0",
+  "advertise": {
+    "rpc": "ADDR:4647",
+    "serf": "ADDR:4648"
+  },
+  "data_dir": "/var/lib/nomad",
+  "datacenter": "nomad-intro",
+  "enable_syslog": true,
+  "syslog_facility": "LOCAL0",
+  "log_level": "INFO",
+  "server": {
+    "bootstrap_expect": 1,
+    "enabled": true
+  },
+  "consul" : {
+    "address" : "ADDR:8500"
+  }
+}
