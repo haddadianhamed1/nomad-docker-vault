@@ -14,7 +14,7 @@ install:
 	chmod +x /usr/local/bin/hostess
 
 	# Get IP address of the current machine from eth1
-	ifconfig enp0s8 | grep "inet addr" | awk 'BEGIN { FS = "[ :]+" }{print $4}' > /tmp/self.ip
+	ifconfig enp0s8 | grep "inet addr" | awk 'BEGIN { FS = "[ :]+" }{print $$4}' > /tmp/self.ip
 	hostess add consul `cat /tmp/self.ip`
 
 	# Install nomad binaries
